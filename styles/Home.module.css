@@ -1,0 +1,219 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcomeText {
+  font-size: 3rem;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 2s forwards, moveUp 2s forwards;
+  font-weight: 100; /* Montserrat Thin */
+}
+
+.continueButton {
+  position: relative;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: white;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 2s 2s forwards, moveUp 2s 2s forwards;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.continueButton:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+}
+
+.bubbleEffect {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleUpEffect 1.5s ease-out forwards;
+}
+
+.onboardingFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  top: -20px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: white;
+}
+
+.questionText {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.onboardingForm input {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+}
+
+.onboardingForm button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboardingForm button:hover {
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+}
+
+@keyframes bubbleUpEffect {
+  0% {
+    transform: scale(0.5) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  animation: bgAnimation 10s ease infinite;
+  background-size: 200% 200%;
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: bubbleUp 15s infinite ease-in-out;
+  z-index: 0;
+}
+
+.bubble:nth-child(1) {
+  left: 10%;
+  animation-duration: 12s;
+}
+
+.bubble:nth-child(2) {
+  left: 20%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 10s;
+}
+
+.bubble:nth-child(3) {
+  left: 25%;
+  animation-duration: 8s;
+}
+
+.bubble:nth-child(4) {
+  left: 40%;
+  width: 80px;
+  height: 80px;
+  animation-duration: 14s;
+}
+
+.bubble:nth-child(5) {
+  left: 70%;
+  animation-duration: 11s;
+}
+
+@keyframes bubbleUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1200px);
+  }
+}
