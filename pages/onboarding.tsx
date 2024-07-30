@@ -43,7 +43,25 @@ export default function Onboarding() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep()) {
-      // Handle form submission logic
+      try {
+        const response = await fetch('/api/calendar', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert('Calendar invite sent');
+        } else {
+          alert('Failed to create event: ' + data.error);
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Error submitting form');
+      }
     }
   };
 

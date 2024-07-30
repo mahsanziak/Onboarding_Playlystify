@@ -38,8 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       res.status(200).json({ message: 'Calendar invite sent' });
     } catch (error) {
-      console.error('Error creating calendar event:', error);
-      res.status(500).json({ error: 'Error creating calendar event' });
+      console.error('Error creating calendar event:', error); // Add this line
+      res.status(500).json({ error: `Error creating calendar event: ${error.message}` });
     }
   } else {
     res.setHeader('Allow', ['POST']);
